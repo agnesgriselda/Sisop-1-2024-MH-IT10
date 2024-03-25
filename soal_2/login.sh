@@ -52,10 +52,12 @@ admin_actions() {
             ./register.sh
             ;;
         2)
-            ./edit_user.sh
+            read -p "Enter email of the user to edit: " edit_email
+            ./edit_user.sh "$edit_email"
             ;;
         3)
-            ./delete_user.sh
+            read -p "Enter email of the user to delete: " delete_email
+            ./delete_user.sh "$delete_email"
             ;;
         *)
             echo "Invalid action"
