@@ -21,7 +21,7 @@ register_user() {
     local password=$5
     local user_type="user"  # Default user type
 
-    if [[ "$email" == admin ]]; then
+    if [[ "$email" == *admin* ]]; then
         user_type="admin"
     fi
     
