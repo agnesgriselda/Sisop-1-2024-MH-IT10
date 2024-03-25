@@ -17,6 +17,14 @@ c. Cipung dan Abe hanya akan membeli stok barang yang menghasilkan profit paling
 
 d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak kunjung sampai, maka mereka ingin mengecek apakah pesanan itu ada. Cari purchase date dan amount (quantity) dari nama adriaens
 
+  ## Penyelesaian
+1. Buat folder bernama "sandbox"
+2. Tampilkan apakah sudah ada atau belum foldernya
+3. Pindah direktori ke file "sandbox"
+4. Setelah masuk di folder "sandbox", kita download file yang dibutuhkan menggunakan command `wget` untuk mendownload file pada link gdrive 'https://drive.google.com/uc?download=export&id=1cC6MYBI3wRwDgqlFQE1OQUN83JAreId0' dan menggunakan option `-O` untuk mengubah nama file yang telah di download
+5. Tampilkan apakah sudah ada atau belum filenya
+6. Tampilkan isi dari file "Sandbox.csv"
+7. Ke soal poin A. Kita disuruh menampilkan nama pembeli dengan total sales tertinggi. Pertama kita menggunakan command `awk` untuk me
   ## Soal 2
 Oppie merupakan seorang peneliti bom atom, ia ingin merekrut banyak peneliti lain untuk mengerjakan proyek bom atom nya, Oppie memiliki racikan bom atom rahasia yang hanya bisa diakses penelitinya yang akan diidentifikasi sebagai user, Oppie juga memiliki admin yang bertugas untuk memanajemen peneliti,  bantulah oppie untuk membuat program yang akan memudahkan tugasnya 
 Buatlah 2 program yaitu login.sh dan register.sh. Setiap admin maupun user harus melakukan register terlebih dahulu menggunakan email, username, pertanyaan keamanan dan jawaban, dan password
