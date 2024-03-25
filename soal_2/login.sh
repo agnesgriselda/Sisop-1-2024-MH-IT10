@@ -45,6 +45,7 @@ admin_actions() {
     echo "1. Add User"
     echo "2. Edit User"
     echo "3. Delete User"
+    echo "4. Logout"
     read -p "Choose action: " action
 
     case $action in
@@ -58,6 +59,10 @@ admin_actions() {
         3)
             read -p "Enter email of the user to delete: " delete_email
             ./delete_user.sh "$delete_email"
+            ;;
+        4)
+            echo "Logout successful!"
+            exit 0
             ;;
         *)
             echo "Invalid action"
