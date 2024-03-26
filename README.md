@@ -55,7 +55,7 @@ Ex:
 [23/09/17 13:18:02] [REGISTER SUCCESS] user [username] registered successfully
 [23/09/17 13:22:41] [LOGIN FAILED] ERROR Failed login attempt on user with email [email]
 
-# Penyelesaian register.sh
+# Penyelesaian `register.sh`
 
 Script ini adalah sebuah skrip bash yang memungkinkan registrasi pengguna dengan memasukkan informasi seperti email, username, pertanyaan keamanan, jawaban keamanan, dan password. Berikut penjelasan dari setiap bagian kode:
 
@@ -149,7 +149,7 @@ Bagian utama kode berisi alur utama registrasi pengguna. Pengguna diminta untuk 
 
 Selain itu, script ini juga mencatat kejadian registrasi pengguna ke dalam file `auth.log`, baik itu berhasil maupun gagal.
 
-# Penyelesaian login.sh
+# Penyelesaian `login.sh`
 
 Kode di bawah adalah skrip Bash yang menyediakan fungsi untuk melakukan login, mengelola pengguna, serta pemulihan password. Berikut adalah penjelasan singkat tentang bagaimana kode ini bekerja:
 
@@ -410,7 +410,7 @@ Hasil akhir:
 - [image].jpg
 
   #Penyelesaian awal.sh
-  ### Penjelasan Kode `awal.sh`
+  ## Penjelasan Kode `awal.sh`
 
 Skrip ini adalah sebuah bash script yang bertujuan untuk mengumpulkan dan mengelompokkan foto-foto karakter dari permainan Genshin Impact berdasarkan wilayahnya, serta menghitung jumlah pengguna untuk setiap jenis senjata yang digunakan karakter tersebut. Berikut adalah penjelasan langkah-langkah yang dilakukan dalam skrip tersebut:
 
@@ -440,14 +440,9 @@ Skrip ini adalah sebuah bash script yang bertujuan untuk mengumpulkan dan mengel
 6. **Menghapus File Tidak Diperlukan:**
    - Menghapus file `genshin_character.zip`, `list_character.csv`, dan `genshin.zip` setelah selesai proses pengumpulan dan pengolahan.
 
-### Catatan:
-- Perlu diperhatikan bahwa beberapa bagian dari skrip ini mungkin perlu dimodifikasi tergantung pada struktur file yang sebenarnya dan lokasi tempat script ini dijalankan.
-- Sebaiknya pastikan bahwa file `list_character.csv` telah ada sebelum menjalankan skrip ini.
-- Skrip ini akan bekerja dengan benar jika semua prasyarat telah dipenuhi, termasuk adanya file `list_character.csv` yang sesuai dan struktur file dari `genshin.zip` yang benar.
-
   # Penyelesaian kode search.sh
 
-  ### Penjelasan Kode `steghide_image_search.sh`
+  ## Penjelasan Kode `search.sh`
 
 Skrip ini bertujuan untuk mencari gambar tersembunyi dalam folder `genshin_character` dan mengekstrak URL yang tersembunyi di dalamnya. Berikut adalah penjelasan langkah-langkah yang dilakukan dalam skrip tersebut:
 
@@ -477,11 +472,6 @@ Skrip ini bertujuan untuk mencari gambar tersembunyi dalam folder `genshin_chara
 
 6. **Delay dan Iterasi Berikutnya:**
    - Menunda proses selama 1 detik sebelum melanjutkan iterasi ke gambar berikutnya.
-
-### Catatan:
-- Skrip ini akan terus berjalan hingga menemukan URL tersembunyi dalam salah satu gambar atau sampai semua gambar telah diperiksa.
-- Pastikan bahwa skrip ini dijalankan di lingkungan yang memiliki perintah `steghide`, `wget`, dan `base64`.
-- Perhatikan bahwa skrip ini akan mengunduh file yang ditemukan, dan URL yang ditemukan akan disimpan dalam file teks dengan format yang sesuai.
 
   
 
