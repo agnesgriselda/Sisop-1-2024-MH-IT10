@@ -473,6 +473,14 @@ Skrip ini bertujuan untuk mencari gambar tersembunyi dalam folder `genshin_chara
 6. **Delay dan Iterasi Berikutnya:**
    - Menunda proses selama 1 detik sebelum melanjutkan iterasi ke gambar berikutnya.
 
+   ## Revisi
+
+   Pada script awal.sh, terdapat modifikasi pada fungsi ganti nama file sebagai berikut :
+
+```
+change=$(awk -F,  "/$hore/"'{OFS=",";print $2 "-" $1 "-" $3 "-" $4}' list_character.csv | tr -d '\r')
+```
+  Fungsi modifikasi ini berfungsi untuk menghilangkan `\r` pada format penamaan file`.jpg` agar dapat terbaca pada script berikutnya, ##search.sh
   
 
 
