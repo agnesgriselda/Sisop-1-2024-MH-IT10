@@ -86,8 +86,7 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
 
 
    ## Dokumentasi Output
-   ![Uploading WhatsApp Image 2024-03-30 at 21.36.29_6c8413b8.jpg…]()
-
+   ![Screenshot from 2024-03-30 21-52-18](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150429708/ab3fda53-ef42-4529-9863-a0a42afe5bb5)
 
   ## Soal 2
 Oppie merupakan seorang peneliti bom atom, ia ingin merekrut banyak peneliti lain untuk mengerjakan proyek bom atom nya, Oppie memiliki racikan bom atom rahasia yang hanya bisa diakses penelitinya yang akan diidentifikasi sebagai user, Oppie juga memiliki admin yang bertugas untuk memanajemen peneliti,  bantulah oppie untuk membuat program yang akan memudahkan tugasnya 
