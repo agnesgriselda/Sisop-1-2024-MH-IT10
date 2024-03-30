@@ -383,6 +383,13 @@ fi
 
 delete_user "$1"
 ```
+## Dokumentasi Output
+
+![Screenshot 2024-03-30 115055](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/0cc2ff65-37db-49df-b6de-eeee8d971e3a)
+
+![Screenshot 2024-03-30 115137](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/d74d1b08-dfb9-44a1-bbae-5e5f916d66fd)
+
+![Screenshot 2024-03-30 115210](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/90485d55-0957-4b5d-9bec-eee87281d42c)
 
 ## Soal 3
 
@@ -409,7 +416,6 @@ Hasil akhir:
 - [filename].txt
 - [image].jpg
 
-  #Penyelesaian awal.sh
   ## Penjelasan Kode `awal.sh`
 
 Skrip ini adalah sebuah bash script yang bertujuan untuk mengumpulkan dan mengelompokkan foto-foto karakter dari permainan Genshin Impact berdasarkan wilayahnya, serta menghitung jumlah pengguna untuk setiap jenis senjata yang digunakan karakter tersebut. Berikut adalah penjelasan langkah-langkah yang dilakukan dalam skrip tersebut:
@@ -439,8 +445,6 @@ Skrip ini adalah sebuah bash script yang bertujuan untuk mengumpulkan dan mengel
 
 6. **Menghapus File Tidak Diperlukan:**
    - Menghapus file `genshin_character.zip`, `list_character.csv`, dan `genshin.zip` setelah selesai proses pengumpulan dan pengolahan.
-
-  # Penyelesaian kode search.sh
 
   ## Penjelasan Kode `search.sh`
 
@@ -481,6 +485,15 @@ Skrip ini bertujuan untuk mencari gambar tersembunyi dalam folder `genshin_chara
 change=$(awk -F,  "/$hore/"'{OFS=",";print $2 "-" $1 "-" $3 "-" $4}' list_character.csv | tr -d '\r')
 ```
   Fungsi modifikasi ini berfungsi untuk menghilangkan `\r` pada format penamaan file`.jpg` agar dapat terbaca pada script berikutnya, ##search.sh
+
+  ## Dokumentasi Output
+
+![Screenshot 2024-03-30 115210](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/13ee92dd-12f7-49c8-ad4d-dff9fe37f459)
+
+![Screenshot 2024-03-30 120041](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/6ff2d50f-ce0c-413a-a8a8-46e1285273de)
+
+
+
   ## Soal 4 
   Stitch sangat senang dengan PC di rumahnya. Suatu hari, PC nya secara tiba-tiba nge-freeze 🤯 Tentu saja, Stitch adalah seorang streamer yang harus setiap hari harus bermain game dan streaming.  Akhirnya, dia membawa PC nya ke tukang servis untuk diperbaiki. Setelah selesai diperbaiki, ternyata biaya perbaikan sangat mahal sehingga dia harus menggunakan uang hasil tabungan nya untuk membayarnya. Menurut tukang servis, masalahnya adalah pada CPU dan GPU yang overload karena gaming dan streaming sehingga mengakibatkan freeze pada PC nya. Agar masalah ini tidak terulang kembali, Stitch meminta kamu untuk membuat sebuah program monitoring resource yang tersedia pada komputer.
 Buatlah program monitoring resource pada PC kalian. Cukup monitoring ram dan monitoring size suatu directory. Untuk ram gunakan command `free -m`. Untuk disk gunakan command `du -sh <target_path>`. Catat semua metrics yang didapatkan dari hasil `free -m`. Untuk hasil `du -sh <target_path>` catat size dari path directory tersebut. Untuk target_path yang akan dimonitor adalah /home/{user}/. 
