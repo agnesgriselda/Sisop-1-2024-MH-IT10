@@ -650,25 +650,32 @@ for log_file in $minute_logs; do
    done < "$log_file"
  done
  ```
-8. **Ini akan menulis header ke file log agregasi per jam**
+
+8. Ini akan menulis header ke file log agregasi per jam
+
  ```
 echo "type,mem_total mem_used mem_free mem_shared mem_buff mem_available swap_total swap_used swap_free path path_size > "$hourly_log_file"
  ```
-9. **Loop ini akan mengiterasi melalui setiap kunci (metric) dalam array metrics**
+
+9. Loop ini akan mengiterasi melalui setiap kunci (metric) dalam array metrics
+
  ```
 for metric in "${!metrics[@]}"; do
     min_max_avg=$(get_min_max_avg "$metrics[metric]}")
  ```
-10. **Menulis hasil agregasi (nilai minimum, maksimum, dan rata-rata) ke file log agregasi per jam**
+10. Menulis hasil agregasi (nilai minimum, maksimum, dan rata-rata) ke file log agregasi per jam
+
  ```
     echo "$metric,$min_max_avg" | tr ' ' ',' >> "$hourly_log_file"
   done
  ```
+
 D. Untuk melaksanakan perintah dari D adalah bagian kode yang ini
-1. **Ini mengubah izin file log agregasi per jam agar hanya dapat dibaca oleh pemiliknya**
+1. Ini mengubah izin file log agregasi per jam agar hanya dapat dibaca oleh pemiliknya
+
  ```
 chmod 600 "$hourly_log_file"
  ```
-   
+
 
 
