@@ -37,16 +37,21 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
    ```
    
 9. Lanjut ke soal poin A. Kita disuruh menampilkan nama pembeli dengan total sales tertinggi
+    ## Revisi
+    Terdapat revisi pada fungsi `sort`
     ```
-    awk -F ',' '{print
+    awk -F ',' '{print $6, $17}' Sandbox.csv | sort -k1 -nr | head -n 1 | awk '{print $1, $2}'
     ```
     Command di atas menggunakan :
    - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
-   - `'{print $
+   - `'{print $6, $17}' Sandbox.csv` digunakan untuk mencetak kolom ke-6 dan ke-17 dari file `Sandbox.csv`
+   - `sort -k1 -nr` digunakan untuk mengambil output dari perintah `awk` dan mengurutkannya berdasarkan kolom ke-6 dan kolom ke-17 dari file `Sandbox.csv` dan secara numerik dari nilai terbesar ke terkecil dan mengarahkan outputnya ke perintah selanjutnya
+   - `head -n 1` digunakan untuk mengambil output dari perintah `sort` dan menampilkan satu baris pertama
+   - `awk '{print $1, $2}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom ke-6 dan ke-17 dari baris dengan nilai terbesar di kolom pertama dari kolom ke-6 dan ke-17 dari file `Sandbox.csv`
   
 11. Lanjut ke soal poin B.  Kita disuruh menampilkan customer segment dengan profit terkecil
     ## Revisi
-    Terdapat revisi pada fungsi `'{print}`
+    Terdapat revisi pada fungsi `{print}`
     ```
     awk -F ',' '{print $20, $7}' Sandbox.csv | sort -k1 | head -n 1 | awk '{print $2, $3}'
     ```
@@ -58,14 +63,19 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     - `awk '{print $2, $3}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom kedua dan ketiga dari baris dengan nilai terkecil di kolom pertama dari kolom ke-20 dan ke-7 dari file `Sandbox.csv`
   
 13. Lanjut ke soal poin C. Kita disuruh menampilkan 3 kategori dengan tottal profit tertinggi
+    ## Revisi
+    Terdapat revisi pada fungsi `{print}` dan fungsi `sort`
     ```
-    awk -F ',' '{print $
+    awk -F ',' '{print $20, $14}' Sandbox.cvs | sort -k1 -nr | head -n 3 | awk '{print $1, $2}'
     ```
     Command di atas menggunakan :
     - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
-    - `'{print $
+    - `'{print $20, $14}' Sandbox.csv` digunakan untuk mencetak kolom ke-20 dan ke-14 dari file `Sandbox.csv`
+    - `sort -k1 -nr` digunakan untuk mengambil output dari perintah `awk` dan mengurutkannya berdasarkan kolom ke-20 dan kolom ke-14 dari file `Sandbox.csv` dan secara numerik dari nilai terbesar ke terkecil dan mengarahkan outputnya ke perintah selanjutnya
+    - `head -n 1` digunakan untuk mengambil output dari perintah `sort` dan menampilkan tiga baris pertama
+    - `awk '{print $1, $2}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom ke-20 dan ke-14 dari baris dengan 3 kategori di kolom pertama dari kolom ke-20 dan ke-14 dari file `Sandbox.csv`
   
-14. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
+15. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
     ```
     grep "Adriaens" Sandbox.csv | awk -F ',' '{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'
     ```
@@ -75,7 +85,9 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     - `'{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'` untuk mencetak informasi tanggal pembelian pada kolom kedua, jumlah pada kolom kedelapan belas dari nama adriaens pada kolom keenam untuk setiap pembelian yang terkait dengan "Adriaens" dalam file `Sandbox.csv`.
 
 
-   ## Output
+   ## Dokumentasi Output
+   ![Uploading WhatsApp Image 2024-03-30 at 21.36.29_6c8413b8.jpg…]()
+
 
   ## Soal 2
 Oppie merupakan seorang peneliti bom atom, ia ingin merekrut banyak peneliti lain untuk mengerjakan proyek bom atom nya, Oppie memiliki racikan bom atom rahasia yang hanya bisa diakses penelitinya yang akan diidentifikasi sebagai user, Oppie juga memiliki admin yang bertugas untuk memanajemen peneliti,  bantulah oppie untuk membuat program yang akan memudahkan tugasnya 
