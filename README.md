@@ -556,69 +556,70 @@ D. Karena file log bersifat sensitif pastikan semua file log hanya dapat dibaca 
 
 ## Penyelesaian 
 A. Pertama tama untuk menyelesaikan permasalahan pada soal A, kita harus memastikan dahulu bahwa kita memahami bahwa target yang akan dimonitor adalah user, Maka kode scriptnya adalah seperti ini : 
-#!/bin/bash
 
-# Ini adalah fungsi untuk mengetahui waktu sekarang
+1. **Ini adalah fungsi untuk mengetahui waktu sekarang**
  ```
+#!/bin/bash
 current_time=$(date "+%Y%m%d%H%M%S")
  ```
 
-# Ini adalah Fungsi untuk mengarahkan bahwa kita memonitor user
+2. **Ini adalah Fungsi untuk mengarahkan bahwa kita memonitor user**
  ```
 target_directory="/home/nafi"
  ```
 
-# Ini adalah fungsi untuk mendapatkan RAM Usage
+3. **Ini adalah fungsi untuk mendapatkan RAM Usage**
  ```
 ram_usage=$(free -m | awk 'NR==2{printf "%s,%s,%s,%s,%s,%s,%s,%s,%s,", $2,$3,$4,$5,$6,$7,$8,$9,$10}')
  ```
 
-# Ini adalah fungsi untuk mendapatkan Size dari Directory
+4. **Ini adalah fungsi untuk mendapatkan Size dari Directory**
  ```
 directory_size=$(du -sh "$target_directory" | awk '{print $1}')
  ```
 
-# Ini adalah proses pembuatan file log
+5. **Ini adalah proses pembuatan file log**
  ```
 log_file="metrics_${current_time}.log"
  ```
 
-# Ini adalah proses menulis metrics pada log file menggunakan fungsi atau command echo
+6. **Ini adalah proses menulis metrics pada log file menggunakan fungsi atau command echo**
  ```
 echo "mem_total,mem_used,mem_free,mem_shared,mem_buff,mem_available,swap_total,swap_used,swap_free,path,path_size" >> "$log_file"
 echo "$ram_usage$directory_size,$target_directory" >> "$log_file"
  ```
 
-# Ini adalah fungsi untuk menampilkan bahwa berhasil
+7. **Ini adalah fungsi untuk menampilkan bahwa berhasil**
  ```
 echo "Metrics saved to $log_file"
  ```
 Contoh Outputnya adalah sebagai berikut : 
 
 B. Untuk mencatat metrics secara otomatis tiap menit langkahnya adalah seperti ini 
-a. Inisiasi fungsi crontab menggunakan command crontab -e 
+a. Inisiasi fungsi crontab menggunakan command `crontab -e` 
 b. lalu kita bisa masuk ke dalam script crontab dan scroll ke bagian paling bawah
 c. Lalu kita bisa menuliskan path menuju directory file yang mau kita buat tercatat tiap menit secara otomatis
 
 C. Untuk Melaksanakan perintah pada soal ini, script yang kita butuhkan adalah seperti ini : 
-#!/bin/bash
-# menyimpan path direktori di mana file log akan disimpan
+
+1. **menyimpan path direktori di mana file log akan disimpan**
  ```
+#!/bin/bash
 log_dir="/home/nafi/log"
  ```
-# menyimpan path file log agregasi per jam. Nama file log akan disesuaikan dengan tanggal dan jam saat ini
+2. **menyimpan path file log agregasi per jam. Nama file log akan disesuaikan dengan tanggal dan jam saat ini**
  ```
 hourly_log_file="$log_dir/metrics_agg_$(date "+%Y%m%d%H").log"
  ```
-# daftar file log per menit yang ada di dalam direktori 
+3. **daftar file log per menit yang ada di dalam direktori**
  ```
 minute_logs=$(ls -t "$log_dir"/metrics_*.log)
  ```
-# Ini adalah deklarasi array metrics yang akan menyimpan data metrics yang dikumpulkan dari file log
+4. **Ini adalah deklarasi array metrics yang akan menyimpan data metrics yang dikumpulkan dari file log**
  ```
 declare -A metrics
  ```
-# digunakan untuk menghitung nilai minimum, maksimum, dan rata-rata dari serangkaian nilai yang diberikan
+5. **digunakan untuk menghitung nilai minimum, maksimum, dan rata-rata dari serangkaian nilai yang diberikan**
  ```
 get_min_max_avg() {
     values=$(echo "$1" | sed 's/[^0-9.]//g')
@@ -629,11 +630,11 @@ get_min_max_avg() {
     echo "$min,$max,$avg"
   }
    ```
-#  Loop ini akan mengiterasi melalui setiap file log per menit yang ditemukan di dalam direktori log.
+6. **Loop ini akan mengiterasi melalui setiap file log per menit yang ditemukan di dalam direktori log**
  ```
 for log_file in $minute_logs; do 
  ```
-# Loop ini akan membaca setiap baris dari file log yang sedang diproses dan memasukkan nilai metrics ke dalam array metrics.
+7. **Loop ini akan membaca setiap baris dari file log yang sedang diproses dan memasukkan nilai metrics ke dalam array metrics**
    ```
    while IFS=, read -r mem_total mem_used mem_free mem_shared mem_buff mem_available swap_total swap_used swap_free path path_size; do
    metrics[mem_total]+="$mem_total "
@@ -649,22 +650,22 @@ for log_file in $minute_logs; do
    done < "$log_file"
  done
  ```
-#  Ini akan menulis header ke file log agregasi per jam.
+8. **Ini akan menulis header ke file log agregasi per jam**
  ```
 echo "type,mem_total mem_used mem_free mem_shared mem_buff mem_available swap_total swap_used swap_free path path_size > "$hourly_log_file"
  ```
-# Loop ini akan mengiterasi melalui setiap kunci (metric) dalam array metrics.
+9. **Loop ini akan mengiterasi melalui setiap kunci (metric) dalam array metrics**
  ```
 for metric in "${!metrics[@]}"; do
     min_max_avg=$(get_min_max_avg "$metrics[metric]}")
  ```
-# menulis hasil agregasi (nilai minimum, maksimum, dan rata-rata) ke file log agregasi per jam.
+10. **Menulis hasil agregasi (nilai minimum, maksimum, dan rata-rata) ke file log agregasi per jam**
  ```
     echo "$metric,$min_max_avg" | tr ' ' ',' >> "$hourly_log_file"
   done
  ```
 D. Untuk melaksanakan perintah dari D adalah bagian kode yang ini
-#  Ini mengubah izin file log agregasi per jam agar hanya dapat dibaca oleh pemiliknya.
+1. **Ini mengubah izin file log agregasi per jam agar hanya dapat dibaca oleh pemiliknya**
  ```
 chmod 600 "$hourly_log_file"
  ```
