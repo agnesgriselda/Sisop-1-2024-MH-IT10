@@ -18,13 +18,39 @@ c. Cipung dan Abe hanya akan membeli stok barang yang menghasilkan profit paling
 d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak kunjung sampai, maka mereka ingin mengecek apakah pesanan itu ada. Cari purchase date dan amount (quantity) dari nama adriaens
 
   ## Penyelesaian
-1. Buat folder bernama "sandbox"
-2. Tampilkan apakah sudah ada atau belum foldernya
-3. Pindah direktori ke file "sandbox"
-4. Setelah masuk di folder "sandbox", kita download file yang dibutuhkan menggunakan command `wget` untuk mendownload file pada link gdrive 'https://drive.google.com/uc?download=export&id=1cC6MYBI3wRwDgqlFQE1OQUN83JAreId0' dan menggunakan option `-O` untuk mengubah nama file yang telah di download
-5. Tampilkan apakah sudah ada atau belum filenya
-6. Tampilkan isi dari file "Sandbox.csv"
-7. Ke soal poin A. Kita disuruh menampilkan nama pembeli dengan total sales tertinggi. Pertama kita menggunakan command `awk` untuk me
+1. Buat folder bernama "soal_1"
+2. Tampilkan apakah sudah ada atau belum foldernya menggunakan command `ls`
+3. Pindah direktori ke file "soal_1"
+4. Setelah masuk di folder "soal_1", kita download file yang dibutuhkan
+   ```
+   wget -O Sandbox.csv 'https://drive.google.com/uc?download=export&id=1cC6MYBI3wRwDgqlFQE1OQUN83JAreId0'
+   ```
+   Command di atas menggunakan `wget` untuk mengunduh file dan `-O` untuk mengubah nama file yang telah di download dan menyimpannya sebagai `Sandbox.csv` dari link google drive `https://drive.google.com/uc?download=export&id=1cC6MYBI3wRwDgqlFQE1OQUN83JAreId0`
+6. Tampilkan apakah sudah ada atau belum filenya menggunakan command `ls`
+7. Tampilkan isi dari file "Sandbox.csv" menggunakan
+   ```
+   cat Sandbox.csv
+   ```
+9. Lanjut ke soal poin A. Kita disuruh menampilkan nama pembeli dengan total sales tertinggi
+    ```
+    awk -F ',' '{print
+    ```
+    Command di atas menggunakan `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,) dan `'{print $
+10. Lanjut ke soal poin B.  Kita disuruh menampilkan customer segment dengan profit terkecil
+    ```
+    awk -F ',' '{print $
+    ```
+    Command di atas menggunakan `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,) dan `'{print $
+11. Lanjut ke soal poin C. Kita disuruh menampilkan 3 kategori dengan tottal profit tertinggi
+    ```
+    awk -F ',' '{print $
+    ```
+    Command di atas menggunakan `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,) dan `'{print $
+12. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
+    ```
+    grep "Adriaens" Sandbox.csv | awk -F ',' '{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'
+    ```
+    Command di atas menggunakan `grep "Adriaens" Sandbox.csv` untuk mencari pola/baris Adriaens dalam file Sandbox.csv dan ditampilkan pola/barisnya. Kemudian, kita menggunakan command `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,) dan `'{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'` untuk mencetak informasi tanggal pembelian pada kolom kedua, jumlah pada kolom kedelapan belas dari nama adriaens pada kolom keenam untuk setiap pembelian yang terkait dengan `Adriaens` dalam file `Sandbox.csv`.
 
   ## Soal 2
 Oppie merupakan seorang peneliti bom atom, ia ingin merekrut banyak peneliti lain untuk mengerjakan proyek bom atom nya, Oppie memiliki racikan bom atom rahasia yang hanya bisa diakses penelitinya yang akan diidentifikasi sebagai user, Oppie juga memiliki admin yang bertugas untuk memanajemen peneliti,  bantulah oppie untuk membuat program yang akan memudahkan tugasnya 
