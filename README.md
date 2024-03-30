@@ -69,6 +69,8 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
     - `'{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'` untuk mencetak informasi tanggal pembelian pada kolom kedua, jumlah pada kolom kedelapan belas dari nama adriaens pada kolom keenam untuk setiap pembelian yang terkait dengan "Adriaens" dalam file `Sandbox.csv`.
 
+   ## Output
+
   ## Soal 2
 Oppie merupakan seorang peneliti bom atom, ia ingin merekrut banyak peneliti lain untuk mengerjakan proyek bom atom nya, Oppie memiliki racikan bom atom rahasia yang hanya bisa diakses penelitinya yang akan diidentifikasi sebagai user, Oppie juga memiliki admin yang bertugas untuk memanajemen peneliti,  bantulah oppie untuk membuat program yang akan memudahkan tugasnya 
 Buatlah 2 program yaitu login.sh dan register.sh. Setiap admin maupun user harus melakukan register terlebih dahulu menggunakan email, username, pertanyaan keamanan dan jawaban, dan password
