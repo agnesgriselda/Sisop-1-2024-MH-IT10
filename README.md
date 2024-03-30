@@ -42,20 +42,25 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
    - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
    - `'{print $
 11. Lanjut ke soal poin B.  Kita disuruh menampilkan customer segment dengan profit terkecil
+    ## Revisi
+    Terdapat revisi pada fungsi `'{print}`
+    ```
+    awk -F ',' '{print $20, $7}' Sandbox.csv | sort -k1 | head -n 1 | awk '{print $2, $3}'
+    ```
+    Command di atas menggunakan :
+    - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
+    - `'{print $20, $7}' Sandbox.csv` digunakan untuk mencetak kolom ke-20 dan ke-7 dari file `Sandbox.csv`
+    - `sort -k1` digunakan untuk mengambil output dari perintah `awk` dan mengurutkannya berdasarkan kolom pertama dari kolom ke-20 dari file `Sandbox.csv` dan mengarahkan outputnya ke perintah selanjutnya
+    - `head -n 1` digunakan untuk mengambil output dari perintah `sort` dan menampilkan satu baris pertama
+    - `awk '{print $2, $3}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom kedua dan ketiga dari baris dengan nilai terkecil di kolom pertama dari kolom ke-20 dan ke-7 dari file `Sandbox.csv` 
+13. Lanjut ke soal poin C. Kita disuruh menampilkan 3 kategori dengan tottal profit tertinggi
     ```
     awk -F ',' '{print $
     ```
     Command di atas menggunakan :
     - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
     - `'{print $
-12. Lanjut ke soal poin C. Kita disuruh menampilkan 3 kategori dengan tottal profit tertinggi
-    ```
-    awk -F ',' '{print $
-    ```
-    Command di atas menggunakan :
-    - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
-    - `'{print $
-13. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
+14. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
     ```
     grep "Adriaens" Sandbox.csv | awk -F ',' '{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'
     ```
