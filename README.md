@@ -488,7 +488,8 @@ change=$(awk -F,  "/$hore/"'{OFS=",";print $2 "-" $1 "-" $3 "-" $4}' list_charac
 
   ## Dokumentasi Output
 
-![Screenshot 2024-03-30 115210](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/13ee92dd-12f7-49c8-ad4d-dff9fe37f459)
+![Screenshot 2024-03-30 115311](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/e9449a4d-1e87-45c2-9bd8-1738be9847a1)
+
 
 ![Screenshot 2024-03-30 120041](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/150202762/6ff2d50f-ce0c-413a-a8a8-46e1285273de)
 
