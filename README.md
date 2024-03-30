@@ -605,7 +605,7 @@ echo "$ram_usage$directory_size,$target_directory" >> "$log_file"
 echo "Metrics saved to $log_file"
  ```
 ## Output 
-
+![IMG_9637](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/144348985/a0892e5a-3b56-40cb-adfc-22144fab5b32)
 
 B. Untuk mencatat metrics secara otomatis tiap menit langkahnya adalah seperti ini 
 - Inisiasi fungsi crontab menggunakan command `crontab -e` 
@@ -689,8 +689,8 @@ chmod 600 "$hourly_log_file"
  ```
 
 ## Output 
-
-## Revisi 
+![IMG_9638](https://github.com/agnesgriselda/Sisop-1-2024-MH-IT10/assets/144348985/3164fd86-4d14-46a4-afea-5c8dc0807308)
+## Revisi
 1. Mengganti target yang dimonitor dari permintaan soal A yaitu memonitor user
 2. Membuat direktori log dan memasukkan minute_log.sh kedalamnya
 3. Output dari Aggregate_minutes_to_hourly_log.sh masih error syntax
