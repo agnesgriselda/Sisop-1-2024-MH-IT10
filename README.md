@@ -29,11 +29,13 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
    - `wget` untuk mengunduh file
    - `-O` untuk mengubah nama file yang telah di download dan menyimpannya sebagai `Sandbox.csv`
    - dari link google drive `https://drive.google.com/uc?download=export&id=1cC6MYBI3wRwDgqlFQE1OQUN83JAreId0`
+  
 6. Tampilkan apakah sudah ada atau belum filenya menggunakan command `ls`
 7. Tampilkan isi dari file "Sandbox.csv" menggunakan
    ```
    cat Sandbox.csv
    ```
+   
 9. Lanjut ke soal poin A. Kita disuruh menampilkan nama pembeli dengan total sales tertinggi
     ```
     awk -F ',' '{print
@@ -41,6 +43,7 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     Command di atas menggunakan :
    - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
    - `'{print $
+  
 11. Lanjut ke soal poin B.  Kita disuruh menampilkan customer segment dengan profit terkecil
     ## Revisi
     Terdapat revisi pada fungsi `'{print}`
@@ -52,7 +55,8 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     - `'{print $20, $7}' Sandbox.csv` digunakan untuk mencetak kolom ke-20 dan ke-7 dari file `Sandbox.csv`
     - `sort -k1` digunakan untuk mengambil output dari perintah `awk` dan mengurutkannya berdasarkan kolom pertama dari kolom ke-20 dari file `Sandbox.csv` dan mengarahkan outputnya ke perintah selanjutnya
     - `head -n 1` digunakan untuk mengambil output dari perintah `sort` dan menampilkan satu baris pertama
-    - `awk '{print $2, $3}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom kedua dan ketiga dari baris dengan nilai terkecil di kolom pertama dari kolom ke-20 dan ke-7 dari file `Sandbox.csv` 
+    - `awk '{print $2, $3}'` digunakan untuk mengambil output dari hasil perintah `head` dan mencetak nilai kolom kedua dan ketiga dari baris dengan nilai terkecil di kolom pertama dari kolom ke-20 dan ke-7 dari file `Sandbox.csv`
+  
 13. Lanjut ke soal poin C. Kita disuruh menampilkan 3 kategori dengan tottal profit tertinggi
     ```
     awk -F ',' '{print $
@@ -60,6 +64,7 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     Command di atas menggunakan :
     - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
     - `'{print $
+  
 14. Lanjut ke soal poin D. Kita disuruh menampilkan purchase date dan quantity dari nama adriaens
     ```
     grep "Adriaens" Sandbox.csv | awk -F ',' '{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'
@@ -68,6 +73,7 @@ d. Karena ada seseorang yang lapor kepada Cipung dan Abe bahwa pesanannya tidak 
     - `grep "Adriaens" Sandbox.csv` untuk mencari pola/baris Adriaens dalam file Sandbox.csv dan ditampilkan pola/barisnya
     - `awk -F ','` digunakan untuk membaca baris lalu memisah tiap bagian di baris yang dipisah dengan (,)
     - `'{print "Purchase date :", $2, "dan Quantity :", $18, "dari Nama Adriaens :", $6"}'` untuk mencetak informasi tanggal pembelian pada kolom kedua, jumlah pada kolom kedelapan belas dari nama adriaens pada kolom keenam untuk setiap pembelian yang terkait dengan "Adriaens" dalam file `Sandbox.csv`.
+
 
    ## Output
 
