@@ -597,9 +597,9 @@ echo "Metrics saved to $log_file"
 
 
 B. Untuk mencatat metrics secara otomatis tiap menit langkahnya adalah seperti ini 
-a. Inisiasi fungsi crontab menggunakan command `crontab -e` 
-b. lalu kita bisa masuk ke dalam script crontab dan scroll ke bagian paling bawah
-c. Lalu kita bisa menuliskan path menuju directory file yang mau kita buat tercatat tiap menit secara otomatis
+- Inisiasi fungsi crontab menggunakan command `crontab -e` 
+- Lalu kita bisa masuk ke dalam script crontab dan scroll ke bagian paling bawah
+- Lalu kita bisa menuliskan path menuju directory file yang mau kita buat tercatat tiap menit secara otomatis
 
 C. Untuk Melaksanakan perintah pada soal ini, script yang kita butuhkan adalah seperti ini : 
 
